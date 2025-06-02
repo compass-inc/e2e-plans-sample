@@ -6,7 +6,7 @@
 
 ### 手順
 
-次の手順で E2E テストを実装する。
+Cursor エディターを利用して、次の手順で E2E テストを実装する。
 
 1. AI に依頼して、テスト手順書を md 形式で作成する。
 2. テスト手順書に従ったブラウザテストを AI によって実行させる。
@@ -59,6 +59,42 @@ npm install
 ```bash
 npx playwright install
 ```
+
+## MCP の設定
+
+このプロジェクトでは、ブラウザテストを Playwright MCP によって実行します。
+
+### Cursor 用 MCP 設定
+
+Cursor 用の設定ファイル（`~/.cursor/mcp.json`）に以下の設定を追加してください：
+
+```json
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    }
+  }
+}
+```
+
+### 設定手順
+
+1. `~/.cursor/mcp.json` ファイルを作成または編集
+2. 上記の Playwright MCP 設定を追加
+3. Cursor を再起動
+4. MCP サーバーが正常に接続されていることを確認
+
+### 使用方法
+
+Cursor で Playwright MCP が設定されると、以下のことが可能になります：
+
+- AI による自動ブラウザテストの実行
+- テスト手順書に基づいたブラウザ操作の自動化
+- スクリーンショットの自動取得
+- テスト結果の自動記録
+- Cursor 内でのシームレスなテスト実行
 
 ## テスト実行
 
